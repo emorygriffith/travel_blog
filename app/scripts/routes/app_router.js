@@ -8,6 +8,10 @@
 
     routes: {
       '': 'home'
+    },
+
+    home: function() {
+      new App.Views.Home({ collection: App.posts });
     }
 
 

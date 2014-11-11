@@ -1,8 +1,8 @@
 (function () {
 
-  App.Model.extend = Parse.Object.extend({
+  App.Models.extend = Parse.Object.extend({
 
-    // className: 'Post',
+    className: 'Post',
 
     idAttribute: 'objectId',
 
