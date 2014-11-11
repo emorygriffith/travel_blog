@@ -8,7 +8,9 @@
 
     routes: {
       '': 'home',
-      'login': 'userLogin'
+      'login': 'userLogin',
+      'signup': 'userSignup'
+
     },
 
     home: function() {
@@ -16,8 +18,11 @@
     },
 
     userLogin: function() {
-      console.log('yeahhh!');
       new App.Views.Login();
+    },
+
+    userSignup: function() {
+      new App.Views.Signup();
     }
 
   });
