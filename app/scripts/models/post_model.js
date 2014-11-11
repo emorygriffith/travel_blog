@@ -1,6 +1,6 @@
 (function () {
 
-  App.Models.extend = Parse.Object.extend({
+  App.Models.Post = Parse.Object.extend({
 
     className: 'Post',
 
@@ -15,7 +15,7 @@
 
     initialize: function(){
       var t = this.get('title');
-      console.log(t + 'has been added');
+      console.log(t + ' has been added');
     }
 
   });

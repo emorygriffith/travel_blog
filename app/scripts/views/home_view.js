@@ -13,6 +13,11 @@
 
       this.render();
 
+      this.collection.off();
+      this.collections.on('sync', this.render, this);
+
+      $('#blogPosts').html(this.$el);
+
     },
 
     render: function() {
