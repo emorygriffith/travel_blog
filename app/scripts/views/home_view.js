@@ -7,21 +7,30 @@
 
     events: {},
 
+    template: _.template($('#postTemp').html()),
+
     initialize: function(options) {
-      console.log('init');
       this.options = options;
 
       this.render();
 
       this.collection.off();
-      this.collections.on('sync', this.render, this);
+      this.collection.on('sync', this.render, this);
 
       $('#blogPosts').html(this.$el);
 
     },
 
     render: function() {
-      console.log('rendered');
+      var self = this;
+
+      this.$el.empty();
+
+
+      this.collection.each(function(p){
+        self.$el.append(self.template(p.toJSON()));
+
+      });
     }
 
 

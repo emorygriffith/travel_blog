@@ -4,6 +4,8 @@ Parse.initialize("CMngAvUucHZIeKalDNfSr9RH0S82H5vSiLMHDc7n", "vRKH6Vuzsq2zAbTzhq
   //create a new instance of our collection
   App.posts = new App.Collections.Posts();
 
+  console.log(App.posts);
+
   //fetch server-side posts
   App.posts.fetch().done(function() {
 

@@ -14,8 +14,8 @@
     },
 
     initialize: function(){
-      var t = this.get('title');
-      console.log(t + ' has been added');
+      //var t = this.get('title');
+      //console.log(t + ' has been added');
     }
 
   });
