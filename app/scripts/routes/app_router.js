@@ -14,6 +14,11 @@
     },
 
     home: function() {
+
+      // if(!App.user) {
+      //   return App.router.navigate('', {trigger: true});
+      // }
+
       new App.Views.Home({ collection: App.posts });
     },
 

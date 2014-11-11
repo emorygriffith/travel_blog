@@ -31,17 +31,14 @@
 
         username: $('#username').val(),
         password: $('#password').val()
-
       });
+
+      console.log(person);
+
 
       person.signUp();
 
-      // Parse.User.signUp(username, password, {
-      //
-      //     App.user = user;
-      //     App.router.navigate('', {trigger: true});
-      //
-      // });
+      App.router.navigate('', {trigger: true});
 
     }
 
