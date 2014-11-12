@@ -9,7 +9,7 @@
       'submit #logIn': 'loggingIn'
     },
 
-    template: _.template($('#loginForm').html()),
+    template: $('#loginForm').html(),
 
     initialize: function() {
       this.render();
