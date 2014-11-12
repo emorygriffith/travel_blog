@@ -10,7 +10,8 @@
       '': 'home',
       'login': 'userLogin',
       'signup': 'userSignup',
-      'user' : 'userPage'
+      'user' : 'userPage',
+      'add' : 'addPost'
 
     },
 
@@ -33,6 +34,10 @@
 
     userPage: function() {
       new App.Views.User({ collection: App.posts });
+    },
+
+    addPost: function() {
+      new App.Views.Add();
     }
 
   });
