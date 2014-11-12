@@ -31,10 +31,11 @@
     <script type="text/template" id="postTemp">
       <a href="#/login"><button>Log In</button></a>
       <a href="#/signup"><button>Sign Up</button></a>
-      <li id="<%= objectId %>"></li>
-      <h3><%= title %></h3>
-      <p><%= content %></p>
-      <p><%= category %></p>
+      <li id="<%= objectId %>">
+        <h4><%= title %></h4>
+        <p><%= content %></p>
+        <p><%= category %></p>
+      </li>
     </script>
 
     <script type="text/template" id="loginForm">
@@ -51,6 +52,17 @@
         <input id="password" type="password" placeholder="Enter Password" />
         <button>Sign Up</button>
       </form>
+    </script>
+
+    <script type="text/template" id="userTemp">
+      <a href="#"><button>Home</button></a>
+      <a href="#/add"><button>Add Post</button></a>
+      <li id="<%= objectId %>">
+        <h3><%= title %></h3>
+        <p><%= content %></p>
+        <p><%= category %></p>
+        <button id="editPost">Edit</button>
+      </li>
     </script>
 
 
@@ -80,6 +92,7 @@
         <script src="scripts/views/home_view.js"></script>
         <script src="scripts/views/signup_view.js"></script>
         <script src="scripts/views/login_view.js"></script>
+        <script src="scripts/views/user_view.js"></script>
         <script src="scripts/routes/app_router.js"></script>
         <script src="scripts/main.js"></script>
 

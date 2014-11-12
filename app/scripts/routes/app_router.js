@@ -9,7 +9,8 @@
     routes: {
       '': 'home',
       'login': 'userLogin',
-      'signup': 'userSignup'
+      'signup': 'userSignup',
+      'user' : 'userPage'
 
     },
 
@@ -28,6 +29,10 @@
 
     userSignup: function() {
       new App.Views.Signup();
+    },
+
+    userPage: function() {
+      new App.Views.User({ collection: App.posts });
     }
 
   });
