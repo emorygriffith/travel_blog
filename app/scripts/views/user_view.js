@@ -27,7 +27,7 @@
       this.$el.empty();
 
       this.collection.each(function(mp){
-        //self.$el.append(self.template(mp.toJSON()));
+        self.$el.append(self.template(mp.toJSON()));
 
       });
     }
