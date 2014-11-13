@@ -8,9 +8,12 @@
       'signup': 'userSignup',
       'user' : 'userPage',
       'add' : 'addPost',
-      'edit/:id' : 'editPost'
+      'edit/:id' : 'editPost',
+      'post/:id': 'singlePost'
 
     },
+
+
 
     home: function() {
 
@@ -40,6 +43,11 @@
     editPost: function(info) {
       var data = App.posts.get(info);
       new App.Views.Edit({ currentPost: data });
+    },
+
+    singlePost: function(info){
+      var data = App.posts.get(info);
+      new App.Views.Single({ currentPost: data });
     }
 
   });

@@ -33,7 +33,7 @@
       e.preventDefault();
 
       this.options.currentPost.set({
-          title: $('#upate_post_title').val(),
+          title: $('#update_post_title').val(),
           content: $('#update_post_content').val(),
           category: $('input[name="category"]:checked').val()
 
