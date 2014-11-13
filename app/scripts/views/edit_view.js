@@ -6,7 +6,8 @@
     className: 'editPost',
 
     events: {
-      'submit #editForm' : 'editPost'
+      'submit #editForm' : 'editPost',
+      'click #delete' : 'deletePost'
     },
 
     template: _.template($('#editTemp').html()),
@@ -44,6 +45,14 @@
       App.router.navigate('user', { trigger: true });
 
 
+    },
+
+    deletePost: function(e) {
+      e.preventDefault();
+
+      this.options.currentPost.destroy();
+
+      App.router.navigate('user', {trigger: true});
     }
 
 

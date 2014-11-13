@@ -65,7 +65,7 @@
       <a href="#/"><button>Home</button></a>
       <a href="#/add"><button>Add Post</button></a>
       <li id="<%= objectId %>">
-        <h3><%= title %></h3>
+        <a href="#/post/<%= objectId %>"><h4><%= title %></h4></a>
         <p><%= content %></p>
         <p><%= category %></p>
       </li>
@@ -133,6 +133,7 @@
                 <span>5</span>
               </label>
             </div>
+            <button id="delete">Delete</button>
           </div>
         </form>
     </script>
