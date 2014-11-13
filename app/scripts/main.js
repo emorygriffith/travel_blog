@@ -2,8 +2,8 @@ Parse.initialize("CMngAvUucHZIeKalDNfSr9RH0S82H5vSiLMHDc7n", "vRKH6Vuzsq2zAbTzhq
 
 (function() {
 
-  //create obj to store current user
-  App.user = Parse.User.current();
+  //create obj to store current user - don't need here added it to App.updateUser function
+  // App.user = Parse.User.current();
 
   //create a new instance of our collection
   App.posts = new App.Collections.Posts();
@@ -12,6 +12,7 @@ Parse.initialize("CMngAvUucHZIeKalDNfSr9RH0S82H5vSiLMHDc7n", "vRKH6Vuzsq2zAbTzhq
   App.posts.fetch().done(function() {
 
     App.router = new App.Routers.AppRouter();
+    Parse.history.start();
 
   });
 
@@ -19,8 +20,26 @@ Parse.initialize("CMngAvUucHZIeKalDNfSr9RH0S82H5vSiLMHDc7n", "vRKH6Vuzsq2zAbTzhq
   $('#logOut').on('click', function (e) {
     e.preventDefault();
     Parse.User.logOut();
+    App.updateUser();
     App.router.navigate('', {trigger: true});
   });
+
+
+  // Update User
+  App.updateUser = function (){
+    App.user = Parse.User.current();
+    var currentUser;
+    if (App.user == null){
+      currentUser = '';
+      $('#cus').text('not logged in');
+    } else {
+      currentUser = 'Welcome ' + App.user.attributes.username;
+      $('#cus').text('yes logged in');
+    }
+    $('#loggedIn').html(currentUser);
+  };
+  App.updateUser();
+
 
 
 }());
