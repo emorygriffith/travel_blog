@@ -12,12 +12,35 @@
     initialize: function(options) {
       this.options = options;
 
-      this.render();
-
       this.collection.off();
-      this.collection.on('sync', this.render, this);
+      this.collection.on('sync', this.postQuery, this);
 
       $('#blogPosts').html(this.$el);
+
+      this.postQuery();
+
+    },
+
+    postQuery: function() {
+
+      var self = this;
+
+      var user_post = new Parse.Query(App.Models.Post);
+
+      user_post.equalTo('user', App.user);
+
+      user_post.find({
+        success: function (results) {
+          self.collection = results;
+          self.render();
+
+        },
+        error: function(a, b) {
+          console.log(b);
+
+        }
+
+    });
 
     },
 
@@ -26,11 +49,16 @@
 
       this.$el.empty();
 
-      this.collection.each(function(mp){
-        self.$el.append(self.template(mp.toJSON()));
+      var local_collection = this.collection;
 
+      _.each(local_collection, function(p){
+        self.$el.append(self.template(p.toJSON()));
       });
+
+      return this;
+
     }
+
 
 
 

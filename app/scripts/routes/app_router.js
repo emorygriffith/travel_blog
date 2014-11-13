@@ -38,6 +38,8 @@
 
     addPost: function() {
       new App.Views.Add({ newpost: new App.Models.Post() });
+
+      
     },
 
     editPost: function(info) {

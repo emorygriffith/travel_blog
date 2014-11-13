@@ -32,16 +32,38 @@
     addNewPost: function(e) {
       e.preventDefault();
 
-      this.options.newpost.set({
-          title: $('#post_title').val(),
-          content: $('#post_content').val(),
-          category: $('input[name="category"]:checked').val()
+      var p = new App.Models.Post({
+        title: $('#post_title').val(),
+        content: $('#post_content').val(),
+        category: $('input[name="category"]:checked').val(),
+        user: App.user
 
       });
 
-      this.options.newpost.save();
+      p.setACL(new Parse.ACL(App.user));
 
-      App.router.navigate('user', { trigger: true });
+      p.save(null, {
+        success: function() {
+          App.posts.add(p);
+          App.router.navigate('user', {trigger:true});
+        }
+
+      })
+
+
+
+
+
+      // this.options.newpost.set({
+      //     title: $('#post_title').val(),
+      //     content: $('#post_content').val(),
+      //     category: $('input[name="category"]:checked').val()
+      //
+      // });
+      //
+      // this.options.newpost.save();
+      //
+      // App.router.navigate('user', { trigger: true });
 
 
     }
