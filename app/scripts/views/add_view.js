@@ -40,7 +40,16 @@
 
       });
 
-      p.setACL(new Parse.ACL(App.user));
+      // p.setACL(new Parse.ACL(App.user));
+      // p.setPublicReadAccess(true);
+      //
+      //
+      // //
+      // var publicPost = new App.Models.Post();
+      // // var postACL = new Parse.ACL(Parse.User.current());
+      // //     postACL.setPublicReadAccess(true);
+      //     publicPost.setACL(p);
+      // //     publicPost.save();
 
       p.save(null, {
         success: function() {
