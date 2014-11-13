@@ -12,7 +12,7 @@
       'signup': 'userSignup',
       'user' : 'userPage',
       'add' : 'addPost',
-      'edit' : 'editPost'
+      'edit/:id' : 'editPost'
 
     },
 
@@ -41,8 +41,9 @@
       new App.Views.Add({ newpost: new App.Models.Post() });
     },
 
-    editPost: function() {
-      new App.Views.Edit({ newpost: new App.Models.Post() });
+    editPost: function(info) {
+      var data = App.posts.get(info);
+      new App.Views.Edit({ currentPost: data });
     }
 
   });

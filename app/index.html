@@ -66,7 +66,7 @@
         <p><%= content %></p>
         <p><%= category %></p>
       </li>
-      <a href="#/edit"><button id="editPost">Edit</button></a>
+      <a href="#/edit/<%= objectId %>"><button id="editPost">Edit</button></a>
     </script>
 
     <script type="text/template" id="addTemp">
@@ -104,32 +104,34 @@
     <script type="text/template" id="editTemp">
       <a href="#/user"><button>Cancel</button></a>
       <form id="editForm">
-        <input type="text" value="<%= title %>" id="update_post_title" />
-        <textarea id="update_post_content"><%= content %></textarea>
-        <button id="updatePost">Update Post</button>
-          <div class="select_categories">
-            <label>
-              <input type="checkbox" name="category" value="1" <% if (category == "1") { %>checked<% } %>>
-              <span>1</span>
-            </label>
-            <label>
-              <input type="checkbox" name="category" value="2" <% if (category == "2") { %>checked<% } %>>
-              <span>2</span>
-            </label>
-            <label>
-              <input type="checkbox" name="category" value="3" <% if (category == "3") { %>checked<% } %>>
-              <span>3</span>
-            </label>
-            <label>
-              <input type="checkbox" name="category" value="4" <% if (category == "4") { %>checked<% } %>>
-              <span>4</span>
-            </label>
-            <label>
-              <input type="checkbox" name="category" value="5" <% if (category == "5") { %>checked<% } %>>
-              <span>5</span>
-            </label>
+        <div class="<%= objectId %>">
+          <input type="text" value="<%= title %>" id="update_post_title" />
+          <textarea id="update_post_content"><%= content %></textarea>
+          <button id="updatePost">Update Post</button>
+            <div class="selectCategories">
+              <label>
+                <input type="checkbox" name="category" value="1" <% if (category == "1") { %>checked<% } %>>
+                <span>1</span>
+              </label>
+              <label>
+                <input type="checkbox" name="category" value="2" <% if (category == "2") { %>checked<% } %>>
+                <span>2</span>
+              </label>
+              <label>
+                <input type="checkbox" name="category" value="3" <% if (category == "3") { %>checked<% } %>>
+                <span>3</span>
+              </label>
+              <label>
+                <input type="checkbox" name="category" value="4" <% if (category == "4") { %>checked<% } %>>
+                <span>4</span>
+              </label>
+              <label>
+                <input type="checkbox" name="category" value="5" <% if (category == "5") { %>checked<% } %>>
+                <span>5</span>
+              </label>
+            </div>
           </div>
-      </form>
+        </form>
     </script>
 
     <script type="text/template" id="singleTemp">
