@@ -15,4 +15,12 @@ Parse.initialize("CMngAvUucHZIeKalDNfSr9RH0S82H5vSiLMHDc7n", "vRKH6Vuzsq2zAbTzhq
 
   });
 
+  // Log Out
+  $('#logOut').on('click', function (e) {
+    e.preventDefault();
+    Parse.User.logOut();
+    App.router.navigate('', {trigger: true});
+  });
+
+
 }());
