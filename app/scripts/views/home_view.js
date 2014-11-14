@@ -35,15 +35,9 @@
           self.collection = results;
 
           self.render();
-
-
-        },
-        error: function(a, b) {
-          console.log(b);
-
-
         }
-    });
+
+      });
 
     },
 
@@ -57,13 +51,18 @@
       var local_collection = this.collection;
       console.log(local_collection);
 
+      var search = local_collection.attributes;
+      console.log(search);
+
+
+
       _.each(local_collection, function(p){
-        self.$el.append(self.template(p.toJSON()));
+        // if(local_collection.attributes.published === true) {
+          self.$el.append(self.template(p.toJSON()));
+        // }
       });
 
-
       return this;
-
 
     }
 

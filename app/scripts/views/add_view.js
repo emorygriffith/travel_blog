@@ -6,10 +6,9 @@
     className: 'addPost',
 
     events: {
-      'submit #addForm' : 'addNewPost'
+      'click #publishPost' : 'publishNewPost',
+      'click #draftPost': 'draftNewPost'
     },
-
-    // template: _.template($('#addTemp').html()),
 
     initialize: function() {
       this.render();
@@ -20,21 +19,19 @@
 
     render: function() {
 
-      // this.$el.html(this.template(this.options.newpost.toJSON()));
-
       this.$el.html($('#addTemp').html());
 
     },
 
-    addNewPost: function(e) {
+    publishNewPost: function(e) {
       e.preventDefault();
 
       var p = new App.Models.Post({
         title: $('#post_title').val(),
         content: $('#post_content').val(),
         category: $('input[name="category"]:checked').val(),
-        user: App.user
-
+        user: App.user,
+        published: true
       });
 
       var postACL = new Parse.ACL(Parse.User.current());
@@ -48,24 +45,32 @@
           App.posts.add(p);
           App.router.navigate('user', {trigger:true});
         }
-
       });
 
+    },
 
+    draftNewPost: function(e) {
+      e.preventDefault();
 
+      var p = new App.Models.Post({
+        title: $('#post_title').val(),
+        content: $('#post_content').val(),
+        category: $('input[name="category"]:checked').val(),
+        user: App.user
+      });
 
+      var postACL = new Parse.ACL(Parse.User.current());
 
-      // this.options.newpost.set({
-      //     title: $('#post_title').val(),
-      //     content: $('#post_content').val(),
-      //     category: $('input[name="category"]:checked').val()
-      //
-      // });
-      //
-      // this.options.newpost.save();
-      //
-      // App.router.navigate('user', { trigger: true });
+      postACL.setPublicReadAccess(true);
 
+      p.setACL(postACL);
+
+      p.save(null, {
+        success: function() {
+          App.posts.add(p);
+          App.router.navigate('user', {trigger:true});
+        }
+      });
 
     }
 
