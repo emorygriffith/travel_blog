@@ -35,7 +35,9 @@
         content: $('#post_content').val(),
         category: $('input[name="category"]:checked').val(),
         user: App.user,
-        published: true
+        published: true,
+        author: App.user.attributes.username,
+        authorId: App.user.id
       });
 
       var postACL = new Parse.ACL(Parse.User.current());

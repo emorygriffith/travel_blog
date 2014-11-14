@@ -45,6 +45,8 @@
         <a href="#/post/<%= objectId %>"><h4><%= title %></h4></a>
         <p><%= content %></p>
         <p><%= category %></p>
+        <a href="#/author/<%= authorId %>"><%= author %></p></a>
+        <p><%= createdAt %></p>
       </li>
     </script>
 
@@ -70,6 +72,7 @@
         <span id='textDraft'>Draft</span>
         <p><%= content %></p>
         <p><%= category %></p>
+        <p><%= createdAt %></p>
       </li>
       <a href="#/edit/<%= objectId %>"><button id="editPost">Edit</button></a>
     </script>
@@ -166,6 +169,8 @@
         <h3><%= title %></h3>
         <p><%= content %></p>
         <p><%= category %></p>
+        <a href="#/author/<%= authorId %>"><%= author %></p></a>
+        <p><%= createdAt %></p>
       </li>
 
       <form id="addComment">
