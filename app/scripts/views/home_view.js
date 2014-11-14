@@ -47,16 +47,15 @@
 
 
       this.$el.empty();
+      // var local_collection = this.collection;
+      console.log(App.posts);
+      //
+      // var search = local_collection.attributes;
+      // console.log(search);
+      console.log(App.posts.models);
 
-      var local_collection = this.collection;
-      console.log(local_collection);
 
-      var search = local_collection.attributes;
-      console.log(search);
-
-
-
-      _.each(local_collection, function(p){
+      _.each(App.posts.models, function(p){
         // if(local_collection.attributes.published === true) {
           self.$el.append(self.template(p.toJSON()));
         // }
