@@ -40,7 +40,7 @@
 
       });
 
-      // p.setACL(new Parse.ACL(App.user));
+       // p.setACL(new Parse.ACL(App.user));
       // p.setPublicReadAccess(true);
       //
       //
