@@ -26,11 +26,12 @@
     <div class="hero-unit">
 
       <div class="header">
-        <span id="loggedIn"></span>
+        <span id="welcomeText"></span>
         <a href="#/login"><button>Log In</button></a>
         <a href="#/signup"><button>Sign Up</button></a>
         <button id="logOut">Log Out</button>
-        <button id="cus"></button>
+        <a href="#/"><button>Home</button></a>
+        <a href="#/add"><button>Add Post</button></a>
       </div>
 
       <div id="blogPosts"></div>
@@ -64,8 +65,6 @@
     </script>
 
     <script type="text/template" id="userTemp">
-      <a href="#/"><button>Home</button></a>
-      <a href="#/add"><button>Add Post</button></a>
       <li id="<%= objectId %>">
         <a href="#/post/<%= objectId %>"><h4><%= title %></h4></a>
         <p><%= content %></p>
