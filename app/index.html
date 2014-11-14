@@ -139,14 +139,22 @@
         </form>
     </script>
 
+    <script type="text/template" id="commentTemp">
+      <li><%= commentText %></li>
+    </script>
+
     <script type="text/template" id="singleTemp">
       <a href="#/"><button>Home</button></a>
       <li id="<%= objectId %>">
         <h3><%= title %></h3>
         <p><%= content %></p>
         <p><%= category %></p>
-        <span>Link Up Comments Here</span>
       </li>
+
+      <form id="addComment">
+        <textarea id="commentText" placeholder="Add a Comment..."></textarea>
+        <button class="comment">Add Comment</button>
+      </form>
     </script>
 
 
@@ -172,6 +180,7 @@
         <!-- build:js scripts/main.js -->
 
         <script src="scripts/models/post_model.js"></script>
+        <script src="scripts/models/comment_model.js"></script>
         <script src="scripts/collections/post_collection.js"></script>
         <script src="scripts/views/home_view.js"></script>
         <script src="scripts/views/signup_view.js"></script>
