@@ -9,13 +9,10 @@
       'submit #addForm' : 'addNewPost'
     },
 
-    template: _.template($('#addTemp').html()),
+    // template: _.template($('#addTemp').html()),
 
-    initialize: function(options) {
-      this.options = options;
+    initialize: function() {
       this.render();
-
-      $('#addForm').empty();
 
       $('#blogPosts').html(this.$el);
 
@@ -23,9 +20,9 @@
 
     render: function() {
 
-      this.$el.empty();
+      // this.$el.html(this.template(this.options.newpost.toJSON()));
 
-      this.$el.html(this.template(this.options.newpost.toJSON()));
+      this.$el.html($('#addTemp').html());
 
     },
 
@@ -40,16 +37,11 @@
 
       });
 
-       // p.setACL(new Parse.ACL(App.user));
-      // p.setPublicReadAccess(true);
-      //
-      //
-      // //
-      // var publicPost = new App.Models.Post();
-      // // var postACL = new Parse.ACL(Parse.User.current());
-      // //     postACL.setPublicReadAccess(true);
-      //     publicPost.setACL(p);
-      // //     publicPost.save();
+      var postACL = new Parse.ACL(Parse.User.current());
+
+      postACL.setPublicReadAccess(true);
+
+      p.setACL(postACL);
 
       p.save(null, {
         success: function() {
@@ -57,7 +49,7 @@
           App.router.navigate('user', {trigger:true});
         }
 
-      })
+      });
 
 
 

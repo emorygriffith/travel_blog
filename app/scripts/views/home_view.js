@@ -27,9 +27,9 @@
       var self = this;
 
 
-      var all_post = new Parse.Query(App.Models.Post);
+      var all_posts = new Parse.Query(App.Models.Post);
 
-      all_post.find({
+      all_posts.find({
         success: function (results) {
 
           self.collection = results;

@@ -33,14 +33,8 @@
         success: function (results) {
           self.collection = results;
           self.render();
-
-        },
-        error: function(a, b) {
-          console.log(b);
-
         }
-
-    });
+      });
 
     },
 
