@@ -37,7 +37,7 @@
     },
 
     addPost: function() {
-      new App.Views.Add({ newpost: new App.Models.Post() });
+      new App.Views.Add();
 
     },
 

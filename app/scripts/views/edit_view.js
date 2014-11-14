@@ -14,6 +14,7 @@
 
     initialize: function(options) {
       this.options = options;
+      console.log(this.options);
       this.render();
 
       $('#editForm').empty();

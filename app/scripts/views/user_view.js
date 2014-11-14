@@ -45,6 +45,9 @@
 
       _.each(App.posts.models, function(p){
         self.$el.append(self.template(p.toJSON()));
+        if(p.attributes.published === true) {
+          $('#textDraft').remove();
+        }
       });
 
       return this;

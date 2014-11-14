@@ -13,11 +13,15 @@
     initialize: function() {
       this.render();
 
+      $('#addForm').empty();
+
       $('#blogPosts').html(this.$el);
 
     },
 
     render: function() {
+
+      this.$el.empty();
 
       this.$el.html($('#addTemp').html());
 
