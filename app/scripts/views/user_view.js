@@ -43,11 +43,6 @@
 
       this.$el.empty();
 
-      // var local_collection = this.collection;
-      console.log(App.posts);
-
-      console.log(App.posts.models);
-
       _.each(App.posts.models, function(p){
         self.$el.append(self.template(p.toJSON()));
       });
