@@ -32,6 +32,7 @@
         <button id="logOut">Log Out</button>
         <a href="#/"><button>Home</button></a>
         <a href="#/add"><button>Add Post</button></a>
+        <a href="#/user"><button>My Account</button></a>
       </div>
 
       <div id="blogPosts"></div>
@@ -40,7 +41,6 @@
 
 
     <script type="text/template" id="postTemp">
-      <a href="#/user"><button>My Account</button></a>
       <li id="<%= objectId %>">
         <a href="#/post/<%= objectId %>"><h4><%= title %></h4></a>
         <p><%= content %></p>
@@ -83,24 +83,32 @@
         <button id="draftPost">Save As Draft</button>
         <div class="selectCategories">
           <label>
-            <input type="checkbox" name="category" value="1">
-            <span>1</span>
+            <input type="radio" name="category" value="Africa">
+            <span>Africa</span>
           </label>
           <label>
-            <input type="checkbox" name="category" value="2">
-            <span>2</span>
+            <input type="radio" name="category" value="Antartica">
+            <span>Antartica</span>
           </label>
           <label>
-            <input type="checkbox" name="category" value="3">
-            <span>3</span>
+            <input type="radio" name="category" value="Asia">
+            <span>Asia</span>
           </label>
           <label>
-            <input type="checkbox" name="category" value="4">
-            <span>4</span>
+            <input type="radio" name="category" value="Australia">
+            <span>Australia</span>
           </label>
           <label>
-            <input type="checkbox" name="category" value="5">
-            <span>5</span>
+            <input type="radio" name="category" value="Europe">
+            <span>Europe</span>
+          </label>
+          <label>
+            <input type="radio" name="category" value="North America">
+            <span>North America</span>
+          </label>
+          <label>
+            <input type="radio" name="category" value="South America">
+            <span>South America</span>
           </label>
         </div>
       </form>
@@ -115,24 +123,32 @@
           <button id="updatePost">Update Post</button>
             <div class="selectCategories">
               <label>
-                <input type="checkbox" name="category" value="1" <% if (category == "1") { %>checked<% } %>>
-                <span>1</span>
+                <input type="radio" name="category" value="Africa" <% if (category == "Africa") { %>checked<% } %>>
+                <span>Africa</span>
               </label>
               <label>
-                <input type="checkbox" name="category" value="2" <% if (category == "2") { %>checked<% } %>>
-                <span>2</span>
+                <input type="radio" name="category" value="Antartica" <% if (category == "Antartica") { %>checked<% } %>>
+                <span>Antartica</span>
               </label>
               <label>
-                <input type="checkbox" name="category" value="3" <% if (category == "3") { %>checked<% } %>>
-                <span>3</span>
+                <input type="radio" name="category" value="Asia" <% if (category == "Asia") { %>checked<% } %>>
+                <span>Asia</span>
               </label>
               <label>
-                <input type="checkbox" name="category" value="4" <% if (category == "4") { %>checked<% } %>>
-                <span>4</span>
+                <input type="radio" name="category" value="Australia" <% if (category == "Australia") { %>checked<% } %>>
+                <span>Australia</span>
               </label>
               <label>
-                <input type="checkbox" name="category" value="5" <% if (category == "5") { %>checked<% } %>>
-                <span>5</span>
+                <input type="radio" name="category" value="Europe" <% if (category == "Europe") { %>checked<% } %>>
+                <span>Europe</span>
+              </label>
+              <label>
+                <input type="radio" name="category" value="North America" <% if (category == "North America") { %>checked<% } %>>
+                <span>North America</span>
+              </label>
+              <label>
+                <input type="radio" name="category" value="South America" <% if (category == "South America") { %>checked<% } %>>
+                <span>South America</span>
               </label>
             </div>
             <button id="delete">Delete</button>
