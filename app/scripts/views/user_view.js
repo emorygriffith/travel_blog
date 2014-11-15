@@ -43,7 +43,8 @@
 
       this.$el.empty();
 
-      _.each(App.posts.models, function(p){
+      _.each(self.collection, function(p) {
+        console.log(p);
         self.$el.append(self.template(p.toJSON()));
         if(p.attributes.published === true) {
           $('#textDraft').remove();
