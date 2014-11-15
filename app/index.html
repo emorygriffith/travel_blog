@@ -46,7 +46,7 @@
         <p><%= content %></p>
         <p><%= category %></p>
         <a href="#/author/<%= authorId %>"><%= author %></p></a>
-        <p><%= createdAt %></p>
+        <p><%= moment(createdAt).format("MMM Do YY") %></p>
       </li>
     </script>
 
@@ -72,7 +72,7 @@
         <span id='textDraft'>Draft</span>
         <p><%= content %></p>
         <p><%= category %></p>
-        <p><%= createdAt %></p>
+        <p><%= moment(createdAt).format("MMM Do YY") %></p>
       </li>
       <a href="#/edit/<%= objectId %>"><button id="editPost">Edit</button></a>
     </script>
@@ -171,7 +171,7 @@
         <p><%= content %></p>
         <p><%= category %></p>
         <a href="#/author/<%= authorId %>"><%= author %></p></a>
-        <p><%= createdAt %></p>
+        <p><%= moment(createdAt).format("MMM Do YY") %></p>
       </li>
 
       <form id="addComment">
@@ -185,6 +185,7 @@
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
 
 
     <!-- endbower -->

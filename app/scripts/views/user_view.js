@@ -39,16 +39,17 @@
     },
 
     render: function() {
+
       var self = this;
 
       this.$el.empty();
 
       _.each(self.collection, function(p) {
-        console.log(p);
         self.$el.append(self.template(p.toJSON()));
         if(p.attributes.published === true) {
           $('#textDraft').remove();
         }
+
       });
 
       return this;
@@ -56,10 +57,7 @@
     }
 
 
-
-
   });
-
 
 
 }());

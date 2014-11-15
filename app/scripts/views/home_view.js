@@ -29,12 +29,9 @@
 
       all_posts.find({
         success: function (results) {
-
           self.collection = results;
-
           self.render();
         }
-
       });
 
     },
@@ -45,11 +42,11 @@
 
       this.$el.empty();
 
-      _.each(App.posts.models, function(p){
-        console.log(p);
+      _.each(App.posts.models, function(p) {
         if(p.attributes.published === true) {
           self.$el.append(self.template(p.toJSON()));
         }
+
       });
 
       return this;
@@ -57,11 +54,7 @@
     }
 
 
-
-
-
   });
-
 
 
 }());
