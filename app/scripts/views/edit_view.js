@@ -41,7 +41,9 @@
           title: $('#update_post_title').val(),
           content: $('#update_post_content').val(),
           category: $('input[name="category"]:checked').val(),
-          published: true
+          published: true,
+          author: App.user.attributes.username,
+          authorId: App.user.id
       });
 
       this.options.currentPost.attributes.published = false;
@@ -58,7 +60,9 @@
       this.options.currentPost.set({
           title: $('#update_post_title').val(),
           content: $('#update_post_content').val(),
-          category: $('input[name="category"]:checked').val()
+          category: $('input[name="category"]:checked').val(),
+          author: App.user.attributes.username,
+          authorId: App.user.id
       });
 
       this.options.currentPost.save();

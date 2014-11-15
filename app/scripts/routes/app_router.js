@@ -13,8 +13,6 @@
 
     },
 
-
-
     home: function() {
 
       // if(!App.user) {
