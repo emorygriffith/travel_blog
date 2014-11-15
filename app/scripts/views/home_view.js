@@ -23,9 +23,7 @@
 
     postQuery: function() {
 
-
       var self = this;
-
 
       var all_posts = new Parse.Query(App.Models.Post);
 

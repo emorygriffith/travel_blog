@@ -123,7 +123,8 @@
         <div class="<%= objectId %>">
           <input type="text" value="<%= title %>" id="update_post_title" />
           <textarea id="update_post_content"><%= content %></textarea>
-          <button id="updatePost">Update Post</button>
+          <button id="updatePubPost">Update And Publish</button>
+          <button id="updateDraftPost">Update And Save As Draft</button>
             <div class="selectCategories">
               <label>
                 <input type="radio" name="category" value="Africa" <% if (category == "Africa") { %>checked<% } %>>
