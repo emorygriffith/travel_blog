@@ -45,7 +45,7 @@
         <a href="#/post/<%= objectId %>"><h4><%= title %></h4></a>
         <p><%= content %></p>
         <p><%= category %></p>
-        <a href="#/author/<%= authorId %>"><%= author %></p></a>
+        <a href="#/author/<%= author %>"><%= author %></p></a>
         <p>Published: <%= moment(createdAt).format("MMM Do YY") %></p>
       </li>
     </script>
@@ -171,7 +171,7 @@
         <h3><%= title %></h3>
         <p><%= content %></p>
         <p><%= category %></p>
-        <a href="#/author/<%= authorId %>"><%= author %></p></a>
+        <p><%= author %></p>
         <p>Published: <%= moment(createdAt).format("MMM Do YY") %></p>
       </li>
 
@@ -182,6 +182,15 @@
       </form>
     </script>
 
+    <script type="text/template" id="authorTemp">
+      <h3><%= author %></h3>
+      <li id="<%= objectId %>">
+        <a href="#/post/<%= objectId %>"><h4><%= title %></h4></a>
+        <p><%= content %></p>
+        <p><%= category %></p>
+        <p>Published: <%= moment(createdAt).format("MMM Do YY") %></p>
+      </li>
+    </script>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
@@ -215,6 +224,7 @@
         <script src="scripts/views/add_view.js"></script>
         <script src="scripts/views/edit_view.js"></script>
         <script src="scripts/views/single_view.js"></script>
+        <script src="scripts/views/author_view.js"></script>
         <script src="scripts/routes/app_router.js"></script>
         <script src="scripts/main.js"></script>
 

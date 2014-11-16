@@ -9,7 +9,8 @@
       'user' : 'userPage',
       'add' : 'addPost',
       'edit/:id' : 'editPost',
-      'post/:id': 'singlePost'
+      'post/:id': 'singlePost',
+      'author/:id' : 'authorPage'
 
     },
 
@@ -47,7 +48,11 @@
     singlePost: function(info) {
       var data = App.posts.get(info);
       new App.Views.Single({ currentPost: data });
-    }
+    },
+
+    authorPage: function() {
+      new App.Views.Author({ collection: App.posts });
+    },
 
   });
 
