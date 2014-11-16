@@ -6,13 +6,11 @@
     className: 'addPost',
 
     events: {
-      'submit #addForm' : 'addNewPost'
+      'click #publishPost' : 'publishNewPost',
+      'click #draftPost': 'draftNewPost'
     },
 
-    template: _.template($('#addTemp').html()),
-
-    initialize: function(options) {
-      this.options = options;
+    initialize: function() {
       this.render();
 
       $('#addForm').empty();
@@ -25,11 +23,39 @@
 
       this.$el.empty();
 
-      this.$el.html(this.template(this.options.newpost.toJSON()));
+      this.$el.html($('#addTemp').html());
 
     },
 
-    addNewPost: function(e) {
+    publishNewPost: function(e) {
+      e.preventDefault();
+
+      var p = new App.Models.Post({
+        title: $('#post_title').val(),
+        content: $('#post_content').val(),
+        category: $('input[name="category"]:checked').val(),
+        user: App.user,
+        published: true,
+        author: App.user.attributes.username,
+        authorId: App.user.id
+      });
+
+      var postACL = new Parse.ACL(Parse.User.current());
+
+      postACL.setPublicReadAccess(true);
+
+      p.setACL(postACL);
+
+      p.save(null, {
+        success: function() {
+          App.posts.add(p);
+          App.router.navigate('user', {trigger:true});
+        }
+      });
+
+    },
+
+    draftNewPost: function(e) {
       e.preventDefault();
 
       var p = new App.Models.Post({
@@ -37,43 +63,20 @@
         content: $('#post_content').val(),
         category: $('input[name="category"]:checked').val(),
         user: App.user
-
       });
 
-      // p.setACL(new Parse.ACL(App.user));
-      // p.setPublicReadAccess(true);
-      //
-      //
-      // //
-      // var publicPost = new App.Models.Post();
-      // // var postACL = new Parse.ACL(Parse.User.current());
-      // //     postACL.setPublicReadAccess(true);
-      //     publicPost.setACL(p);
-      // //     publicPost.save();
+      var postACL = new Parse.ACL(Parse.User.current());
+
+      postACL.setPublicReadAccess(true);
+
+      p.setACL(postACL);
 
       p.save(null, {
         success: function() {
           App.posts.add(p);
           App.router.navigate('user', {trigger:true});
         }
-
-      })
-
-
-
-
-
-      // this.options.newpost.set({
-      //     title: $('#post_title').val(),
-      //     content: $('#post_content').val(),
-      //     category: $('input[name="category"]:checked').val()
-      //
-      // });
-      //
-      // this.options.newpost.save();
-      //
-      // App.router.navigate('user', { trigger: true });
-
+      });
 
     }
 

@@ -10,7 +10,7 @@
       title: '',
       content: '',
       category: '',
-      status: ''
+      published: false
     },
 
     initialize: function(){

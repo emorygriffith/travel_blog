@@ -1,13 +1,13 @@
 (function() {
 
-  App.Views.User = Parse.View.extend({
+  App.Views.Author = Parse.View.extend({
 
     tagName: 'ul',
-    className: 'myPosts',
+    className: 'authorPosts',
 
     events: {},
 
-    template: _.template($('#userTemp').html()),
+    template: _.template($('#authorTemp').html()),
 
     initialize: function(options) {
       this.options = options;
@@ -25,11 +25,11 @@
 
       var self = this;
 
-      var user_post = new Parse.Query(App.Models.Post);
+      var author_posts = new Parse.Query(App.Models.Post);
 
-      user_post.equalTo('user', App.user);
+      author_posts.equalTo('author', author);
 
-      user_post.find({
+      author_posts.find({
         success: function (results) {
           self.collection = results;
           self.render();
@@ -46,10 +46,6 @@
 
       _.each(self.collection, function(p) {
         self.$el.append(self.template(p.toJSON()));
-        if(p.attributes.published === true) {
-          $('#textDraft').remove();
-        }
-
       });
 
       return this;

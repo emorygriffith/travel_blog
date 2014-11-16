@@ -6,14 +6,17 @@
     className: 'editPost',
 
     events: {
-      'submit #editForm' : 'editPost',
+      'click #updatePubPost' : 'updatePubPost',
+      'click #updateDraftPost' : 'updateDraftPost',
       'click #delete' : 'deletePost'
     },
 
     template: _.template($('#editTemp').html()),
 
     initialize: function(options) {
+
       this.options = options;
+
       this.render();
 
       $('#editForm').empty();
@@ -30,14 +33,36 @@
 
     },
 
-    editPost: function(e) {
+    updatePubPost: function(e) {
+      console.log(e);
       e.preventDefault();
 
       this.options.currentPost.set({
           title: $('#update_post_title').val(),
           content: $('#update_post_content').val(),
-          category: $('input[name="category"]:checked').val()
+          category: $('input[name="category"]:checked').val(),
+          published: true,
+          author: App.user.attributes.username,
+          authorId: App.user.id
+      });
 
+      this.options.currentPost.attributes.published = false;
+
+      this.options.currentPost.save();
+
+      App.router.navigate('user', { trigger: true });
+
+    },
+
+    updateDraftPost: function(e) {
+      e.preventDefault();
+
+      this.options.currentPost.set({
+          title: $('#update_post_title').val(),
+          content: $('#update_post_content').val(),
+          category: $('input[name="category"]:checked').val(),
+          author: App.user.attributes.username,
+          authorId: App.user.id
       });
 
       this.options.currentPost.save();

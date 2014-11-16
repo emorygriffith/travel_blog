@@ -31,12 +31,10 @@ Parse.initialize("CMngAvUucHZIeKalDNfSr9RH0S82H5vSiLMHDc7n", "vRKH6Vuzsq2zAbTzhq
     var currentUser;
     if (App.user == null){
       currentUser = '';
-      $('#cus').text('not logged in');
     } else {
       currentUser = 'Welcome ' + App.user.attributes.username;
-      $('#cus').text('yes logged in');
     }
-    $('#loggedIn').html(currentUser);
+    $('#welcomeText').html(currentUser);
   };
   App.updateUser();
 

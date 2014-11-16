@@ -4,7 +4,6 @@
 
     model: App.Models.Post,
 
-
   });
 
 }());
