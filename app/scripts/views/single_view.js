@@ -37,10 +37,9 @@
 
           _.each(results, function(comment) {
             $('ul.comments').append(commentTemplate(comment.toJSON()));
-          })
-
+          });
         }
-      })
+      });
 
     },
 
@@ -50,23 +49,24 @@
       var comment = new App.Models.Comment({
 
         commentText: $('#commentText').val(),
+        commentAuthor: $('#commentAuthor').val(),
          parent: this.options.currentPost
 
       });
-
+      console.log(comment);
       comment.save(null, {
 
         success: function () {
 
-
-          // App.router.navigate('read/:postID', {trigger: true});
             $('#addComment')[0].reset();
-            // location.reload();
-
         }
 
       });
-          this.render();
+
+      this.render();
+
     }
+
   });
+
 }());

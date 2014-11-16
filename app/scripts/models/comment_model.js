@@ -6,7 +6,8 @@
     idAttribute: 'objectId',
 
     defaults: {
-      comments: ''
+      commentText: '',
+      commentAuthor: ''
     },
 
     initialize: function() {

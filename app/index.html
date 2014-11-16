@@ -162,6 +162,7 @@
 
     <script type="text/template" id="commentTemp">
       <li><%= commentText %></li>
+      <span><%= commentAuthor %></span>
     </script>
 
     <script type="text/template" id="singleTemp">
@@ -176,6 +177,7 @@
 
       <form id="addComment">
         <textarea id="commentText" placeholder="Add a Comment..."></textarea>
+        <input type="text" id="commentAuthor" placeholder="Enter Your Name..." />
         <button class="comment">Add Comment</button>
       </form>
     </script>
