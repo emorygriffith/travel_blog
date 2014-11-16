@@ -7,20 +7,43 @@ body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+  background-image: URL('http://cdn.wonderfulengineering.com/wp-content/uploads/2014/05/airplane-wallpaper-3.jpg');
+
 }
 
 .hero-unit {
   margin: 50px auto 0 auto;
-  width: 600px;
+  width: 1200px;
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
-  background-color: #eee;
   border-radius: 6px;
   padding: 60px;
+
   h1 {
     font-size: 60px;
+    color: white;
     line-height: 1;
     letter-spacing: -1px;
   }
+}
+
+li{
+  color:gray;
+  border: solid;
+  border-radius: 10px;
+  background-color:white;
+  opacity: .6;
+
+  h4{
+    color:HSLA(211, 43%, 17%, 1);
+    opacity: 1.0;
+  }
+
+
+}
+
+button{
+  border-radius:10px;
+
 }
