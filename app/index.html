@@ -46,7 +46,7 @@
         <p><%= content %></p>
         <p><%= category %></p>
         <a href="#/author/<%= authorId %>"><%= author %></p></a>
-        <p><%= moment(createdAt).format("MMM Do YY") %></p>
+        <p>Published: <%= moment(createdAt).format("MMM Do YY") %></p>
       </li>
     </script>
 
@@ -72,7 +72,7 @@
         <span id='textDraft'>Draft</span>
         <p><%= content %></p>
         <p><%= category %></p>
-        <p><%= moment(createdAt).format("MMM Do YY") %></p>
+        <p>Published: <%= moment(createdAt).format("MMM Do YY") %></p>
       </li>
       <a href="#/edit/<%= objectId %>"><button id="editPost">Edit</button></a>
     </script>
@@ -171,7 +171,7 @@
         <p><%= content %></p>
         <p><%= category %></p>
         <a href="#/author/<%= authorId %>"><%= author %></p></a>
-        <p><%= moment(createdAt).format("MMM Do YY") %></p>
+        <p>Published: <%= moment(createdAt).format("MMM Do YY") %></p>
       </li>
 
       <form id="addComment">
