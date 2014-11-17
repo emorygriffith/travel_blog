@@ -26,7 +26,7 @@
           <span id="welcomeText"></span>
           <a href="#/login"><button class="logInBtn">Log In</button></a>
           <a href="#/signup"><button class="signUpBtn">Sign Up</button></a>
-          <a href="#/"><button id="logOut" class="logOutBtn">Log Out</button></a>
+          <button id="logOut" class="logOutBtn">Log Out</button>
         </div>
       </div>
       <div class="blogTitle">
@@ -44,7 +44,7 @@
         <h4><a href="#/post/<%= objectId %>"><%= title %></a></h4>
         <p><%= content %></p>
         <span class="authorS"><a href="#/author/<%= author %>"><%= author %></a></span>
-        <span class="catS"><%= category %></span>
+        <span class="catS"><a href="#/category/<%= category %>"><%= category %></a></span>
         <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
       </li>
     </script>
@@ -80,7 +80,6 @@
       <form id="addForm">
         <input type="text" id="post_title" placeholder="Title"/>
         <textarea id="post_content" rows="5" cols="80" placeholder="Enter text here"></textarea>
-
         <div class="selectCategories">
           <label>
             <input type="radio" name="category" value="Africa">
@@ -111,12 +110,9 @@
             <span>South America</span>
           </label>
         </div>
-
           <button id="publishPost">Publish</button>
           <button id="draftPost">Save As Draft</button>
           <a href="#/user"><button>Cancel</button></a>
-
-
       </form>
     </script>
 
@@ -124,43 +120,45 @@
       <form id="editForm">
         <div class="<%= objectId %>">
           <input type="text" value="<%= title %>" id="update_post_title" />
-          <textarea id="update_post_content"><%= content %></textarea>
-          <button id="updatePubPost">Update And Publish</button>
-          <button id="updateDraftPost">Update And Save As Draft</button>
-          <a href="#/user"><button>Cancel</button></a>
-            <div class="selectCategories">
-              <label>
-                <input type="radio" name="category" value="Africa" <% if (category == "Africa") { %>checked<% } %>>
-                <span>Africa</span>
-              </label>
-              <label>
-                <input type="radio" name="category" value="Antartica" <% if (category == "Antartica") { %>checked<% } %>>
-                <span>Antartica</span>
-              </label>
-              <label>
-                <input type="radio" name="category" value="Asia" <% if (category == "Asia") { %>checked<% } %>>
-                <span>Asia</span>
-              </label>
-              <label>
-                <input type="radio" name="category" value="Australia" <% if (category == "Australia") { %>checked<% } %>>
-                <span>Australia</span>
-              </label>
-              <label>
-                <input type="radio" name="category" value="Europe" <% if (category == "Europe") { %>checked<% } %>>
-                <span>Europe</span>
-              </label>
-              <label>
-                <input type="radio" name="category" value="North America" <% if (category == "North America") { %>checked<% } %>>
-                <span>North America</span>
-              </label>
-              <label>
-                <input type="radio" name="category" value="South America" <% if (category == "South America") { %>checked<% } %>>
-                <span>South America</span>
-              </label>
-            </div>
+          <textarea id="update_post_content" rows="5" cols="80"><%= content %></textarea>
+          <div class="selectCategories">
+            <label>
+              <input type="radio" name="category" value="Africa" <% if (category == "Africa") { %>checked<% } %>>
+              <span>Africa</span>
+            </label>
+            <label>
+              <input type="radio" name="category" value="Antartica" <% if (category == "Antartica") { %>checked<% } %>>
+              <span>Antartica</span>
+            </label>
+            <label>
+              <input type="radio" name="category" value="Asia" <% if (category == "Asia") { %>checked<% } %>>
+              <span>Asia</span>
+            </label>
+            <label>
+              <input type="radio" name="category" value="Australia" <% if (category == "Australia") { %>checked<% } %>>
+              <span>Australia</span>
+            </label>
+            <label>
+              <input type="radio" name="category" value="Europe" <% if (category == "Europe") { %>checked<% } %>>
+              <span>Europe</span>
+            </label>
+            <label>
+              <input type="radio" name="category" value="North America" <% if (category == "North America") { %>checked<% } %>>
+              <span>North America</span>
+            </label>
+            <label>
+              <input type="radio" name="category" value="South America" <% if (category == "South America") { %>checked<% } %>>
+              <span>South America</span>
+            </label>
+          </div>
+          <div class="editBtns">
+            <button id="updatePubPost">Save And Publish</button>
+            <button id="updateDraftPost">Save As Draft</button>
+            <a href="#/user"><button>Cancel</button></a>
             <button id="delete">Delete</button>
           </div>
-        </form>
+        </div>
+      </form>
     </script>
 
     <script type="text/template" id="commentTemp">
@@ -174,24 +172,32 @@
         <p><%= content %></p>
         <span class="authorS"><%= author %></span>
         <span class="catS"><%= category %></span>
-        <span class="dateS">Published: <%= moment(createdAt).format("MMM Do YY") %></span>
+        <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
       </li>
-
       <form id="addComment">
         <input type="text" id="commentAuthor" placeholder="Enter Your Name..." /> <br>
         <textarea id="commentText" placeholder="Add a Comment..."></textarea> <br>
         <button class="comment">Add Comment</button>
       </form>
-
     </script>
 
     <script type="text/template" id="authorTemp">
-      <h3><%= author %></h3>
       <li id="<%= objectId %>">
-        <a href="#/post/<%= objectId %>"><h4><%= title %></h4></a>
+        <a href="#/post/<%= objectId %>"><h3><%= title %></h3></a>
         <p><%= content %></p>
-        <p><%= category %></p>
-        <p>Published: <%= moment(createdAt).format("MMM Do YY") %></p>
+        <span class="authorS"><%= author %></span>
+        <span class="catS"><a href="#/category/<%= category %>"><%= category %></a></span>
+        <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
+      </li>
+    </script>
+
+    <script type="text/template" id="categoryTemp">
+      <li id="<%= objectId %>">
+        <a href="#/post/<%= objectId %>"><h3><%= title %></h3></a>
+        <p><%= content %></p>
+        <span class="authorS"><a href="#/author/<%= author %>"><%= author %></a></span>
+        <span class="catS"><%= category %></span>
+        <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
       </li>
     </script>
 
