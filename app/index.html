@@ -176,11 +176,11 @@
 
     <script type="text/template" id="singleTemp">
       <li id="<%= objectId %>">
-        <h3><%= title %></h3>
+        <h3 class="jumbo"><%= title %></h3>
         <p><%= content %></p>
-        <p><%= category %></p>
-        <p><%= author %></p>
-        <p>Published: <%= moment(createdAt).format("MMM Do YY") %></p>
+        <p class="authorS"><%= author %></p>
+        <p class="catS"><%= category %></p>
+        <p class="dateS">Published: <%= moment(createdAt).format("MMM Do YY") %></p>
       </li>
 
       <form id="addComment">
