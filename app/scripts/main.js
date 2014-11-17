@@ -1,5 +1,4 @@
-Parse.initialize("CMngAvUucHZIeKalDNfSr9RH0S82H5vSiLMHDc7n", "vRKH6Vuzsq2zAbTzhqcfOtZAaRfD0larKCMLKF0c");
-
+Parse.initialize("Cy0plLtPINgE6OY44gN25GO8Abl47gJsFKSguX7R", "kCbQ0Gurt0jBLCu7pC8PygcKidnfFZhph52Rgwfg");
 (function() {
 
   //create obj to store current user - don't need here added it to App.updateUser function

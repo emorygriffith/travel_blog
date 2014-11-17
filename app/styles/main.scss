@@ -87,7 +87,7 @@ li {
   list-style-type: none;
   background-color: white;
   opacity: .6;
-  padding-left:25px;
+  padding-left: 25px;
 
   a {
     color: HSLA(0, 0%, 99%, 1);
@@ -147,47 +147,47 @@ li {
 }
 
 #post_content{
-  display:block;
-  margin-top:30px;
+  display: block;
+  margin-top: 30px;
 }
 
 #publishPost{
-  margin-top:30px;
+  margin-top: 30px;
 }
 
 #addForm{
 
   button{
-  color:black;
+  color: black;
   border-radius: 10px;
   }
 }
 
 #logIn{
   #username{
-    display:block;
+    display: block;
   }
   #password{
-    display:block;
-    margin-top:10px;
+    display: block;
+    margin-top: 10px;
   }
   button{
-    display:block;
-    margin-top:10px;
+    display: block;
+    margin-top: 10px;
   }
 }
 
 #signUp{
   #username{
-    display:block;
+    display: block;
   }
   #password{
-    display:block;
-    margin-top:10px;
+    display: block;
+    margin-top: 10px;
   }
   button{
-    display:block;
-    margin-top:10px;
+    display: block;
+    margin-top: 10px;
   }
 }
 
@@ -199,26 +199,36 @@ li {
     font-size:2.8em;
   }
 
+  h2 {
+    color: white;
+  }
+
 }
 #addComment {
 
-
   #commentAuthor {
-    margin-top:20px;
+    margin-top: 20px;
   }
 
   #commentText {
-    margin-top:20px;
+    margin: 20px 0px 10px 0px;
   }
 
-  button{
-    border-radius:10px;
+  button {
+    margin: 5px 0px 20px 0px;
+    border-radius: 10px;
   }
 }
 
 .myPosts{
-  a{
-    color:black;
-    font-size:1.2em;
+  a {
+    color: black;
+    font-size: 1.2em;
+  }
+}
+
+.authorPosts {
+  h3 {
+    color: black;
   }
 }

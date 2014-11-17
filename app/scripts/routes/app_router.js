@@ -131,7 +131,7 @@
       new App.Views.Single({ currentPost: data });
     },
 
-    authorPage: function() {
+    authorPage: function(author) {
 
       // Displaying Buttons
       if(App.user) {
@@ -142,8 +142,8 @@
         $('.accBtn').addClass('hide');
         $('.logOutBtn').addClass('hide');
       }
-
-      new App.Views.Author({ collection: App.posts });
+      // author will only go to the initialize so need this.options to be able to use in post Query on author_view
+      new App.Views.Author({ collection: App.posts, authorPosts: author });
     },
 
   });
