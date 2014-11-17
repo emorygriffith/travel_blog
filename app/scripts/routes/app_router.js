@@ -10,7 +10,8 @@
       'add' : 'addPost',
       'edit/:id' : 'editPost',
       'post/:id': 'singlePost',
-      'author/:id' : 'authorPage'
+      'author/:id' : 'authorPage',
+      'category/:name' : 'categoryPage'
 
     },
 
@@ -145,6 +146,22 @@
       // author will only go to the initialize so need this.options to be able to use in post Query on author_view
       new App.Views.Author({ collection: App.posts, authorPosts: author });
     },
+
+    categoryPage: function(category) {
+
+      // Displaying Buttons
+      if(App.user) {
+        $('.logInBtn').addClass('hide');
+        $('.signUpBtn').addClass('hide');
+      } else if (!App.user) {
+        $('.addBtn').addClass('hide');
+        $('.accBtn').addClass('hide');
+        $('.logOutBtn').addClass('hide');
+      }
+
+      new App.Views.Category({ collection: App.posts, categoryPosts: category });
+
+    }
 
   });
 

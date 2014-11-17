@@ -52,7 +52,7 @@
         <h4><a href="#/post/<%= objectId %>"><%= title %></a></h4>
         <p><%= content %></p>
         <span class="authorS"><a href="#/author/<%= author %>"><%= author %></a></span>
-        <span class="catS"><%= category %></span>
+        <span class="catS"><a href="#/category/<%= category %>"><%= category %></a></span>
         <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
       </li>
     </script>
@@ -194,6 +194,16 @@
     </script>
 
     <script type="text/template" id="authorTemp">
+      <li id="<%= objectId %>">
+        <a href="#/post/<%= objectId %>"><h3><%= title %></h3></a>
+        <p><%= content %></p>
+        <span class="authorS"><%= author %></span>
+        <span class="catS"><%= category %></span>
+        <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
+      </li>
+    </script>
+
+    <script type="text/template" id="categoryTemp">
       <li id="<%= objectId %>">
         <a href="#/post/<%= objectId %>"><h3><%= title %></h3></a>
         <p><%= content %></p>

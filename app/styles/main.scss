@@ -77,6 +77,11 @@ body {
 
 .allPosts {
   clear: both;
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
 }
 
 li {
