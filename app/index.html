@@ -24,7 +24,6 @@
   <body>
 
     <div class="hero-unit">
-
       <div class="header">
         <div class="box1">
           <a href="#/"><button>Home</button></a>
@@ -37,6 +36,10 @@
           <a href="#/signup"><button class="signUpBtn">Sign Up</button></a>
           <a href="#/"><button id="logOut" class="logOutBtn">Log Out</button></a>
         </div>
+      </div>
+      <div class="blogTitle">
+        <h1>All Things Travel</h1>
+        <p>A blog about travel tips, trips, and destinations...</p>
       </div>
 
       <div id="blogPosts"></div>
@@ -72,13 +75,13 @@
 
     <script type="text/template" id="userTemp">
       <li id="<%= objectId %>">
-        <a href="#/post/<%= objectId %>"><h4><%= title %></h4></a>
+        <h4><a href="#/post/<%= objectId %>"><%= title %></a></h4>
         <span id='textDraft'>Draft</span>
         <p><%= content %></p>
-        <p><%= category %></p>
-        <p>Published: <%= moment(createdAt).format("MMM Do YY") %></p>
+        <span class="catS"><%= category %></span>
+        <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
       </li>
-      <a href="#/edit/<%= objectId %>"><button id="editPost">Edit</button></a>
+      <a href="#/edit/<%= objectId %>"><button id="editPost" class="editBtn">Edit</button></a>
     </script>
 
     <script type="text/template" id="addTemp">

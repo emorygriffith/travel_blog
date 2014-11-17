@@ -30,10 +30,32 @@
     },
 
     userLogin: function() {
+
+      // Displaying Buttons
+      if(App.user) {
+        $('.logInBtn').addClass('hide');
+        $('.signUpBtn').addClass('hide');
+      } else if (!App.user) {
+        $('.addBtn').addClass('hide');
+        $('.accBtn').addClass('hide');
+        $('.logOutBtn').addClass('hide');
+      }
+
       new App.Views.Login();
     },
 
     userSignup: function() {
+
+      // Displaying Buttons
+      if(App.user) {
+        $('.logInBtn').addClass('hide');
+        $('.signUpBtn').addClass('hide');
+      } else if (!App.user) {
+        $('.addBtn').addClass('hide');
+        $('.accBtn').addClass('hide');
+        $('.logOutBtn').addClass('hide');
+      }
+
       new App.Views.Signup();
     },
 
@@ -48,10 +70,9 @@
       if(App.user) {
         $('.logInBtn').addClass('hide');
         $('.signUpBtn').addClass('hide');
-      } else if (!App.user) {
-        $('.addBtn').addClass('hide');
-        $('.accBtn').addClass('hide');
-        $('.logOutBtn').addClass('hide');
+        $('.logOutBtn').removeClass('hide');
+        $('.addBtn').removeClass('hide');
+        $('.accBtn').removeClass('hide');
       }
 
       new App.Views.User({ collection: App.posts });
@@ -112,15 +133,15 @@
 
     authorPage: function() {
 
-    // Displaying Buttons
-    if(App.user) {
-      $('.logInBtn').addClass('hide');
-      $('.signUpBtn').addClass('hide');
-    } else if (!App.user) {
-      $('.addBtn').addClass('hide');
-      $('.accBtn').addClass('hide');
-      $('.logOutBtn').addClass('hide');
-    }
+      // Displaying Buttons
+      if(App.user) {
+        $('.logInBtn').addClass('hide');
+        $('.signUpBtn').addClass('hide');
+      } else if (!App.user) {
+        $('.addBtn').addClass('hide');
+        $('.accBtn').addClass('hide');
+        $('.logOutBtn').addClass('hide');
+      }
 
       new App.Views.Author({ collection: App.posts });
     },
