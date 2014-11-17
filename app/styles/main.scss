@@ -147,26 +147,52 @@ li {
   display: none;
 }
 
-#post_title {
-  display: block;
-}
-
-#post_content{
-  display: block;
-  margin-top: 30px;
-}
-
-#publishPost{
-  margin-top: 30px;
-}
-
 #addForm{
 
   button{
   color: black;
   border-radius: 10px;
   }
+
+  #post_title {
+    display: block;
+  }
+
+  #post_content{
+    display: block;
+    margin-top: 30px;
+  }
+
+  #publishPost{
+    margin-top: 30px;
+  }
 }
+
+#editForm{
+
+  button{
+  color: black;
+  border-radius: 10px;
+  }
+
+  #update_post_title {
+    display: block;
+  }
+
+  #update_post_content{
+    display: block;
+    margin-top: 30px;
+  }
+
+  #update_publishPost{
+    margin-top: 30px;
+  }
+
+  .editBtns {
+    margin-top: 30px;
+  }
+}
+
 
 #logIn{
   #username{
