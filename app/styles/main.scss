@@ -8,6 +8,9 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
   font-size: 62.5%;
+  background-image: URL('http://p1.pichost.me/i/45/1684227.jpg');
+  background-size:cover;
+  background-repeat:no-repeat;
 }
 
 .hero-unit {
@@ -84,6 +87,7 @@ li {
   list-style-type: none;
   background-color: white;
   opacity: .6;
+  padding-left:25px;
 
   a {
     color: HSLA(0, 0%, 99%, 1);
@@ -118,14 +122,16 @@ li {
 .editBtn {
   display: block;
   float: right;
-  background-color: HSLA(211, 9%, 49%, 1);
   padding: 2px 8px 2px 8px;
   border-radius: 8px;
   font-size: 0.6em;
   width: 80px;
+
   &:hover {
     background-color: HSLA(208, 8%, 69%, 1);
   }
+
+
 }
 
 #textDraft {
@@ -136,15 +142,83 @@ li {
   display: none;
 }
 
+#post_title {
+  display: block;
+}
 
+#post_content{
+  display:block;
+  margin-top:30px;
+}
 
-// give H3 class name jumbo
+#publishPost{
+  margin-top:30px;
+}
+
+#addForm{
+
+  button{
+  color:black;
+  border-radius: 10px;
+  }
+}
+
+#logIn{
+  #username{
+    display:block;
+  }
+  #password{
+    display:block;
+    margin-top:10px;
+  }
+  button{
+    display:block;
+    margin-top:10px;
+  }
+}
+
+#signUp{
+  #username{
+    display:block;
+  }
+  #password{
+    display:block;
+    margin-top:10px;
+  }
+  button{
+    display:block;
+    margin-top:10px;
+  }
+}
 
 
 .singlePost {
   text-align: center;
 
-  .jumbo {
-    font-size: 2.8em;
+  .jumbo{
+    font-size:2.8em;
+  }
+
+}
+#addComment {
+
+
+  #commentAuthor {
+    margin-top:20px;
+  }
+
+  #commentText {
+    margin-top:20px;
+  }
+
+  button{
+    border-radius:10px;
+  }
+}
+
+.myPosts{
+  a{
+    color:black;
+    font-size:1.2em;
   }
 }
