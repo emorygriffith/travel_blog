@@ -17,20 +17,62 @@ body {
   font-weight: 200;
   line-height: 30px;
   border-radius: 6px;
-  padding: 60px;
+  padding: 30px;
 
-  h1 {
-    font-size: 60px;
-    color: white;
-    line-height: 1;
-    letter-spacing: -1px;
+  .header {
+    overflow: auto;
+    margin-bottom: 30px;
+    .box1 {
+      float: left;
+
+      a {
+        color: HSLA(0, 0%, 99%, 1);
+      }
+
+      button {
+        background-color: HSLA(211, 9%, 49%, 1);
+        padding: 2px 8px 2px 8px;
+        border-radius: 8px;
+        font-size: 0.6em;
+        width: 80px;
+        &:hover {
+          background-color: HSLA(208, 8%, 69%, 1);
+        }
+      }
+    }
+
+    .box2 {
+      float: right;
+
+      a {
+        color: HSLA(0, 0%, 99%, 1);
+      }
+
+      button {
+        background-color: HSLA(211, 9%, 49%, 1);
+        padding: 2px 8px 2px 8px;
+        border-radius: 8px;
+        font-size: 0.6em;
+        width: 80px;
+        &:hover {
+          background-color: HSLA(208, 8%, 69%, 1);
+        }
+      }
+    }
+  }
+
+  #welcomeText {
+    color: HSLA(208, 8%, 69%, 1);
   }
 }
 
-li{
-  color: gray;
+.allPosts {
+  clear: both;
+}
+
+li {
+  margin-top: 20px;
   border-top: 1px solid HSLA(0, 0%, 73%, 1);
-  border-bottom: 1px solid HSLA(0, 0%, 73%, 1);
   border-radius: 10px;
   list-style-type: none;
   background-color: white;
@@ -50,7 +92,7 @@ li{
   }
 
   h4 a {
-    color:HSLA(211, 43%, 17%, 1);
+    color: HSLA(211, 43%, 17%, 1);
     text-transform: uppercase;
     opacity: 1.0;
     text-decoration: none;
@@ -63,10 +105,10 @@ li{
 
 }
 
-button{
-  border-radius:10px;
-}
-
 #textDraft {
   color: red;
+}
+
+.hide {
+  display: none;
 }

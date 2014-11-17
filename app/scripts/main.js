@@ -38,5 +38,4 @@ Parse.initialize("CMngAvUucHZIeKalDNfSr9RH0S82H5vSiLMHDc7n", "vRKH6Vuzsq2zAbTzhq
   };
   App.updateUser();
 
-
 }());

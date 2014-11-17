@@ -16,6 +16,16 @@
 
     home: function() {
 
+      // Displaying Buttons
+      if(App.user) {
+        $('.logInBtn').addClass('hide');
+        $('.signUpBtn').addClass('hide');
+      } else if (!App.user) {
+        $('.addBtn').addClass('hide');
+        $('.accBtn').addClass('hide');
+        $('.logOutBtn').addClass('hide');
+      }
+
       new App.Views.Home({ collection: App.posts });
     },
 
@@ -34,6 +44,16 @@
         return App.router.navigate('', {trigger: true});
       }
 
+      // Displaying Buttons
+      if(App.user) {
+        $('.logInBtn').addClass('hide');
+        $('.signUpBtn').addClass('hide');
+      } else if (!App.user) {
+        $('.addBtn').addClass('hide');
+        $('.accBtn').addClass('hide');
+        $('.logOutBtn').addClass('hide');
+      }
+
       new App.Views.User({ collection: App.posts });
     },
 
@@ -44,21 +64,64 @@
         return App.router.navigate('', {trigger: true});
       }
 
+      // Displaying Buttons
+      if(App.user) {
+        $('.logInBtn').addClass('hide');
+        $('.signUpBtn').addClass('hide');
+      } else if (!App.user) {
+        $('.addBtn').addClass('hide');
+        $('.accBtn').addClass('hide');
+        $('.logOutBtn').addClass('hide');
+      }
+
       new App.Views.Add();
 
     },
 
     editPost: function(info) {
+
+      // Displaying Buttons
+      if(App.user) {
+        $('.logInBtn').addClass('hide');
+        $('.signUpBtn').addClass('hide');
+      } else if (!App.user) {
+        $('.addBtn').addClass('hide');
+        $('.accBtn').addClass('hide');
+        $('.logOutBtn').addClass('hide');
+      }
+
       var data = App.posts.get(info);
       new App.Views.Edit({ currentPost: data });
     },
 
     singlePost: function(info) {
+
+      // Displaying Buttons
+      if(App.user) {
+        $('.logInBtn').addClass('hide');
+        $('.signUpBtn').addClass('hide');
+      } else if (!App.user) {
+        $('.addBtn').addClass('hide');
+        $('.accBtn').addClass('hide');
+        $('.logOutBtn').addClass('hide');
+      }
+
       var data = App.posts.get(info);
       new App.Views.Single({ currentPost: data });
     },
 
     authorPage: function() {
+
+    // Displaying Buttons
+    if(App.user) {
+      $('.logInBtn').addClass('hide');
+      $('.signUpBtn').addClass('hide');
+    } else if (!App.user) {
+      $('.addBtn').addClass('hide');
+      $('.accBtn').addClass('hide');
+      $('.logOutBtn').addClass('hide');
+    }
+
       new App.Views.Author({ collection: App.posts });
     },
 

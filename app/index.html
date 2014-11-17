@@ -26,13 +26,17 @@
     <div class="hero-unit">
 
       <div class="header">
-        <span id="welcomeText"></span>
-        <a href="#/login"><button>Log In</button></a>
-        <a href="#/signup"><button>Sign Up</button></a>
-        <button id="logOut">Log Out</button>
-        <a href="#/"><button>Home</button></a>
-        <a href="#/add"><button>Add Post</button></a>
-        <a href="#/user"><button>My Account</button></a>
+        <div class="box1">
+          <a href="#/"><button>Home</button></a>
+          <a href="#/add"><button class="addBtn">Add Post</button></a>
+          <a href="#/user"><button class="accBtn">My Account</button></a>
+        </div>
+        <div class="box2">
+          <span id="welcomeText"></span>
+          <a href="#/login"><button class="logInBtn">Log In</button></a>
+          <a href="#/signup"><button class="signUpBtn">Sign Up</button></a>
+          <a href="#/"><button id="logOut" class="logOutBtn">Log Out</button></a>
+        </div>
       </div>
 
       <div id="blogPosts"></div>
@@ -78,7 +82,6 @@
     </script>
 
     <script type="text/template" id="addTemp">
-      <a href="#/user"><button>Cancel</button></a>
       <form id="addForm">
         <input type="text" id="post_title" />
         <textarea id="post_content"></textarea>
@@ -86,6 +89,7 @@
           <img id="pic" src="#" alt="your image" />
         <button id="publishPost">Publish</button>
         <button id="draftPost">Save As Draft</button>
+        <a href="#/user"><button>Cancel</button></a>
         <div class="selectCategories">
           <label>
             <input type="radio" name="category" value="Africa">
@@ -120,13 +124,13 @@
     </script>
 
     <script type="text/template" id="editTemp">
-      <a href="#/user"><button>Cancel</button></a>
       <form id="editForm">
         <div class="<%= objectId %>">
           <input type="text" value="<%= title %>" id="update_post_title" />
           <textarea id="update_post_content"><%= content %></textarea>
           <button id="updatePubPost">Update And Publish</button>
           <button id="updateDraftPost">Update And Save As Draft</button>
+          <a href="#/user"><button>Cancel</button></a>
             <div class="selectCategories">
               <label>
                 <input type="radio" name="category" value="Africa" <% if (category == "Africa") { %>checked<% } %>>
@@ -168,7 +172,6 @@
     </script>
 
     <script type="text/template" id="singleTemp">
-      <a href="#/"><button>Home</button></a>
       <li id="<%= objectId %>">
         <h3><%= title %></h3>
         <p><%= content %></p>
