@@ -16,10 +16,6 @@
 
     home: function() {
 
-      // if(!App.user) {
-      //   return App.router.navigate('', {trigger: true});
-      // }
-
       new App.Views.Home({ collection: App.posts });
     },
 
@@ -32,10 +28,22 @@
     },
 
     userPage: function() {
+
+      if(!App.user) {
+        alert('Please log in to access account');
+        return App.router.navigate('', {trigger: true});
+      }
+
       new App.Views.User({ collection: App.posts });
     },
 
     addPost: function() {
+
+      if(!App.user) {
+        alert('Please log in or sign up to add a post');
+        return App.router.navigate('', {trigger: true});
+      }
+
       new App.Views.Add();
 
     },

@@ -7,8 +7,6 @@ body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
-  background-image: URL('http://cdn.wonderfulengineering.com/wp-content/uploads/2014/05/airplane-wallpaper-3.jpg');
-
 }
 
 .hero-unit {
@@ -29,14 +27,17 @@ body {
 }
 
 li{
-  color:gray;
-  border: solid;
+  color: gray;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
   border-radius: 10px;
-  background-color:white;
+  list-style-type: none;
+  background-color: white;
   opacity: .6;
 
   h4{
     color:HSLA(211, 43%, 17%, 1);
+    text-transform: uppercase;
     opacity: 1.0;
   }
 
@@ -45,7 +46,7 @@ li{
 
 button{
   border-radius:10px;
-
+}
 
 #textDraft {
   color: red;

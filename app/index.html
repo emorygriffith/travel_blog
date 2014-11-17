@@ -44,9 +44,9 @@
       <li id="<%= objectId %>">
         <a href="#/post/<%= objectId %>"><h4><%= title %></h4></a>
         <p><%= content %></p>
-        <p><%= category %></p>
-        <a href="#/author/<%= author %>"><%= author %></p></a>
-        <p>Published: <%= moment(createdAt).format("MMM Do YY") %></p>
+        <span><%= category %></span>
+        <span><a href="#/author/<%= author %>"><%= author %></a></span>
+        <span><%= moment(createdAt).format("MMM Do YY") %></span>
       </li>
     </script>
 
@@ -82,6 +82,8 @@
       <form id="addForm">
         <input type="text" id="post_title" />
         <textarea id="post_content"></textarea>
+        <input type='file' onchange="readURL(this);" />
+          <img id="pic" src="#" alt="your image" />
         <button id="publishPost">Publish</button>
         <button id="draftPost">Save As Draft</button>
         <div class="selectCategories">

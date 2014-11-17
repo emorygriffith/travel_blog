@@ -11,6 +11,7 @@
     },
 
     initialize: function() {
+
       this.render();
 
       $('#addForm').empty();
@@ -20,6 +21,23 @@
     },
 
     render: function() {
+
+      // Display user blog post photos
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#pic')
+              .attr('src', e.target.result)
+              .width(150)
+              .height(200);
+          };
+
+        reader.readAsDataURL(input.files[0]);
+
+        }
+      }
 
       this.$el.empty();
 
@@ -34,8 +52,9 @@
         title: $('#post_title').val(),
         content: $('#post_content').val(),
         category: $('input[name="category"]:checked').val(),
-        user: App.user,
         published: true,
+        image: $('input').val(),
+        user: App.user,
         author: App.user.attributes.username,
         authorId: App.user.id
       });

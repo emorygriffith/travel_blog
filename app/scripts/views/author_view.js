@@ -27,9 +27,11 @@
 
       var author_posts = new Parse.Query(App.Models.Post);
 
-      author_posts.equalTo('author', author);
+      console.log(author_posts);
 
-      author_posts.find({
+      // author_posts.equalTo('author', 'author');
+
+      author_posts.findWhere(author.text()) ({
         success: function (results) {
           self.collection = results;
           self.render();
