@@ -88,7 +88,6 @@
       <form id="addForm">
         <input type="text" id="post_title" placeholder="Title"/>
         <textarea id="post_content" rows="5" cols="80" placeholder="Enter text here"></textarea>
-
         <div class="selectCategories">
           <label>
             <input type="radio" name="category" value="Africa">
@@ -119,12 +118,9 @@
             <span>South America</span>
           </label>
         </div>
-
           <button id="publishPost">Publish</button>
           <button id="draftPost">Save As Draft</button>
           <a href="#/user"><button>Cancel</button></a>
-
-
       </form>
     </script>
 
@@ -184,13 +180,11 @@
         <span class="catS"><%= category %></span>
         <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
       </li>
-
       <form id="addComment">
         <input type="text" id="commentAuthor" placeholder="Enter Your Name..." /> <br>
         <textarea id="commentText" placeholder="Add a Comment..."></textarea> <br>
         <button class="comment">Add Comment</button>
       </form>
-
     </script>
 
     <script type="text/template" id="authorTemp">
@@ -198,7 +192,7 @@
         <a href="#/post/<%= objectId %>"><h3><%= title %></h3></a>
         <p><%= content %></p>
         <span class="authorS"><%= author %></span>
-        <span class="catS"><%= category %></span>
+        <span class="catS"><a href="#/category/<%= category %>"><%= category %></a></span>
         <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
       </li>
     </script>
@@ -207,7 +201,7 @@
       <li id="<%= objectId %>">
         <a href="#/post/<%= objectId %>"><h3><%= title %></h3></a>
         <p><%= content %></p>
-        <span class="authorS"><%= author %></span>
+        <span class="authorS"><a href="#/author/<%= author %>"><%= author %></a></span>
         <span class="catS"><%= category %></span>
         <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
       </li>
@@ -246,6 +240,7 @@
         <script src="scripts/views/edit_view.js"></script>
         <script src="scripts/views/single_view.js"></script>
         <script src="scripts/views/author_view.js"></script>
+        <script src="scripts/views/category_view.js"></script>
         <script src="scripts/routes/app_router.js"></script>
         <script src="scripts/main.js"></script>
 
