@@ -122,14 +122,16 @@ li {
 .editBtn {
   display: block;
   float: right;
-  background-color: HSLA(211, 9%, 49%, 1);
   padding: 2px 8px 2px 8px;
   border-radius: 8px;
   font-size: 0.6em;
   width: 80px;
+
   &:hover {
     background-color: HSLA(208, 8%, 69%, 1);
   }
+
+
 }
 
 #textDraft {
@@ -191,28 +193,33 @@ li {
   }
 }
 
-.singlePost{
-  text-align:center;
+.singlePost {
+  text-align: center;
 
   .jumbo{
     font-size:2.8em;
   }
 
 }
-
-.commentS{
-  text-align:center;
+#addComment {
 
 
-
-  #commentAuthor{
-    display:block;
+  #commentAuthor {
+    margin-top:20px;
   }
-  #commentText{
-    display:block;
+
+  #commentText {
+    margin-top:20px;
   }
+
   button{
-    display:block;
+    border-radius:10px;
   }
+}
 
+.myPosts{
+  a{
+    color:black;
+    font-size:1.2em;
+  }
 }
