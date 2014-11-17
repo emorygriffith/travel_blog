@@ -31,7 +31,7 @@
 
       // author_posts.equalTo('author', 'author');
 
-      author_posts.findWhere(author.text()) ({
+      author_posts.findWhere(a) ({
         success: function (results) {
           self.collection = results;
           self.render();
