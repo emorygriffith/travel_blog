@@ -48,7 +48,7 @@ body {
       float: right;
 
       #welcomeText {
-        color: HSLA(208, 8%, 69%, 1);
+        color: HSLA(208, 8%, 89%, 1);
       }
 
       a {
@@ -261,6 +261,11 @@ li {
 .authorPosts {
   h3 {
     color: black;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
   }
 }
 

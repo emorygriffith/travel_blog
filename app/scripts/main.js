@@ -20,7 +20,7 @@ Parse.initialize("Cy0plLtPINgE6OY44gN25GO8Abl47gJsFKSguX7R", "kCbQ0Gurt0jBLCu7pC
     e.preventDefault();
     Parse.User.logOut();
     App.updateUser();
-    App.router.navigate('', {trigger: true});
+    App.router.navigate('login', {trigger: true});
   });
 
 

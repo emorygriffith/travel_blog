@@ -307,7 +307,7 @@
 
     render: function() {
 
-    
+
 
       this.$el.empty();
 
@@ -564,12 +564,68 @@
       var self = this;
 
       var author_posts = new Parse.Query(App.Models.Post);
+      author_posts.equalTo('author', this.options.authorPosts);
 
-      console.log(author_posts);
+      author_posts.find({
+        success: function (results) {
+          self.collection = results;
+          self.render();
+        }
+      });
 
-      // author_posts.equalTo('author', 'author');
+    },
 
-      author_posts.findWhere(a) ({
+    render: function() {
+
+      var self = this;
+
+      this.$el.empty();
+
+      _.each(self.collection, function(p) {
+        self.$el.append(self.template(p.toJSON()));
+      });
+
+      return this;
+
+    }
+
+
+  });
+
+
+}());
+
+(function() {
+
+  App.Views.Category = Parse.View.extend({
+
+    tagName: 'ul',
+    className: 'categoryPosts',
+
+    events: {},
+
+    template: _.template($('#categoryTemp').html()),
+
+    initialize: function(options) {
+      this.options = options;
+
+      this.collection.off();
+      this.collection.on('sync', this.postQuery, this);
+
+      $('#blogPosts').html(this.$el);
+
+      this.postQuery();
+
+    },
+
+    postQuery: function() {
+
+      var self = this;
+
+      var category_posts = new Parse.Query(App.Models.Post);
+      category_posts.equalTo('category', this.options.categoryPosts);
+
+      category_posts.find({
         success: function (results) {
           self.collection = results;
           self.render();
@@ -610,7 +666,8 @@
       'add' : 'addPost',
       'edit/:id' : 'editPost',
       'post/:id': 'singlePost',
-      'author/:id' : 'authorPage'
+      'author/:id' : 'authorPage',
+      'category/:name' : 'categoryPage'
 
     },
 
@@ -731,7 +788,22 @@
       new App.Views.Single({ currentPost: data });
     },
 
-    authorPage: function() {
+    authorPage: function(author) {
+
+      // Displaying Buttons
+      if(App.user) {
+        $('.logInBtn').addClass('hide');
+        $('.signUpBtn').addClass('hide');
+      } else if (!App.user) {
+        $('.addBtn').addClass('hide');
+        $('.accBtn').addClass('hide');
+        $('.logOutBtn').addClass('hide');
+      }
+      // author will only go to the initialize so need this.options to be able to use in post Query on author_view
+      new App.Views.Author({ collection: App.posts, authorPosts: author });
+    },
+
+    categoryPage: function(category) {
 
       // Displaying Buttons
       if(App.user) {
@@ -743,15 +815,15 @@
         $('.logOutBtn').addClass('hide');
       }
 
-      new App.Views.Author({ collection: App.posts });
-    },
+      new App.Views.Category({ collection: App.posts, categoryPosts: category });
+
+    }
 
   });
 
 }());
 
-Parse.initialize("CMngAvUucHZIeKalDNfSr9RH0S82H5vSiLMHDc7n", "vRKH6Vuzsq2zAbTzhqcfOtZAaRfD0larKCMLKF0c");
-
+Parse.initialize("Cy0plLtPINgE6OY44gN25GO8Abl47gJsFKSguX7R", "kCbQ0Gurt0jBLCu7pC8PygcKidnfFZhph52Rgwfg");
 (function() {
 
   //create obj to store current user - don't need here added it to App.updateUser function
@@ -773,7 +845,7 @@ Parse.initialize("CMngAvUucHZIeKalDNfSr9RH0S82H5vSiLMHDc7n", "vRKH6Vuzsq2zAbTzhq
     e.preventDefault();
     Parse.User.logOut();
     App.updateUser();
-    App.router.navigate('', {trigger: true});
+    App.router.navigate('login', {trigger: true});
   });
 
 
