@@ -1,0 +1,212 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>travel_blog</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <div class="hero-unit">
+      <div class="header">
+        <div class="box1">
+          <a href="#/"><button>Home</button></a>
+          <a href="#/add"><button class="addBtn">Add Post</button></a>
+          <a href="#/user"><button class="accBtn">My Account</button></a>
+        </div>
+        <div class="box2">
+          <span id="welcomeText"></span>
+          <a href="#/login"><button class="logInBtn">Log In</button></a>
+          <a href="#/signup"><button class="signUpBtn">Sign Up</button></a>
+          <a href="#/"><button id="logOut" class="logOutBtn">Log Out</button></a>
+        </div>
+      </div>
+      <div class="blogTitle">
+        <h1>All Things Travel</h1>
+        <p>A blog about travel tips, trips, and destinations...</p>
+      </div>
+
+      <div id="blogPosts"></div>
+
+    </div>
+
+
+    <script type="text/template" id="postTemp">
+      <li id="<%= objectId %>">
+        <h4><a href="#/post/<%= objectId %>"><%= title %></a></h4>
+        <p><%= content %></p>
+        <span class="authorS"><a href="#/author/<%= author %>"><%= author %></a></span>
+        <span class="catS"><%= category %></span>
+        <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
+      </li>
+    </script>
+
+    <script type="text/template" id="loginForm">
+      <form id="logIn">
+        <input id="username" type="text" placeholder="Enter User Name" />
+        <input id="password" type="password" placeholder="Enter Password" />
+        <button>Log In</button>
+      </form>
+    </script>
+
+    <script type="text/template" id="signupForm">
+      <form id="signUp">
+        <input id="username" type="text" placeholder="Enter User Name" />
+        <input id="password" type="password" placeholder="Enter Password" />
+        <button>Sign Up</button>
+      </form>
+    </script>
+
+    <script type="text/template" id="userTemp">
+      <li id="<%= objectId %>">
+        <h4><a href="#/post/<%= objectId %>"><%= title %></a></h4>
+        <span id='textDraft'>Draft</span>
+        <p><%= content %></p>
+        <span class="catS"><%= category %></span>
+        <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
+      </li>
+      <a href="#/edit/<%= objectId %>"><button id="editPost" class="editBtn">Edit</button></a>
+    </script>
+
+    <script type="text/template" id="addTemp">
+      <form id="addForm">
+        <input type="text" id="post_title" placeholder="Title"/>
+        <textarea id="post_content" rows="5" cols="80" placeholder="Enter text here"></textarea>
+
+        <div class="selectCategories">
+          <label>
+            <input type="radio" name="category" value="Africa">
+            <span>Africa</span>
+          </label>
+          <label>
+            <input type="radio" name="category" value="Antartica">
+            <span>Antartica</span>
+          </label>
+          <label>
+            <input type="radio" name="category" value="Asia">
+            <span>Asia</span>
+          </label>
+          <label>
+            <input type="radio" name="category" value="Australia">
+            <span>Australia</span>
+          </label>
+          <label>
+            <input type="radio" name="category" value="Europe">
+            <span>Europe</span>
+          </label>
+          <label>
+            <input type="radio" name="category" value="North America">
+            <span>North America</span>
+          </label>
+          <label>
+            <input type="radio" name="category" value="South America">
+            <span>South America</span>
+          </label>
+        </div>
+
+          <button id="publishPost">Publish</button>
+          <button id="draftPost">Save As Draft</button>
+          <a href="#/user"><button>Cancel</button></a>
+
+
+      </form>
+    </script>
+
+    <script type="text/template" id="editTemp">
+      <form id="editForm">
+        <div class="<%= objectId %>">
+          <input type="text" value="<%= title %>" id="update_post_title" />
+          <textarea id="update_post_content"><%= content %></textarea>
+          <button id="updatePubPost">Update And Publish</button>
+          <button id="updateDraftPost">Update And Save As Draft</button>
+          <a href="#/user"><button>Cancel</button></a>
+            <div class="selectCategories">
+              <label>
+                <input type="radio" name="category" value="Africa" <% if (category == "Africa") { %>checked<% } %>>
+                <span>Africa</span>
+              </label>
+              <label>
+                <input type="radio" name="category" value="Antartica" <% if (category == "Antartica") { %>checked<% } %>>
+                <span>Antartica</span>
+              </label>
+              <label>
+                <input type="radio" name="category" value="Asia" <% if (category == "Asia") { %>checked<% } %>>
+                <span>Asia</span>
+              </label>
+              <label>
+                <input type="radio" name="category" value="Australia" <% if (category == "Australia") { %>checked<% } %>>
+                <span>Australia</span>
+              </label>
+              <label>
+                <input type="radio" name="category" value="Europe" <% if (category == "Europe") { %>checked<% } %>>
+                <span>Europe</span>
+              </label>
+              <label>
+                <input type="radio" name="category" value="North America" <% if (category == "North America") { %>checked<% } %>>
+                <span>North America</span>
+              </label>
+              <label>
+                <input type="radio" name="category" value="South America" <% if (category == "South America") { %>checked<% } %>>
+                <span>South America</span>
+              </label>
+            </div>
+            <button id="delete">Delete</button>
+          </div>
+        </form>
+    </script>
+
+    <script type="text/template" id="commentTemp">
+      <li><%= commentText %></li>
+      <span><%= commentAuthor %></span>
+    </script>
+
+    <script type="text/template" id="singleTemp">
+      <li id="<%= objectId %>">
+        <h3 class="jumbo"><%= title %></h3>
+        <p><%= content %></p>
+        <span class="authorS"><%= author %></span>
+        <span class="catS"><%= category %></span>
+        <span class="dateS">Published: <%= moment(createdAt).format("MMM Do YY") %></span>
+      </li>
+
+      <form id="addComment">
+        <input type="text" id="commentAuthor" placeholder="Enter Your Name..." /> <br>
+        <textarea id="commentText" placeholder="Add a Comment..."></textarea> <br>
+        <button class="comment">Add Comment</button>
+      </form>
+
+    </script>
+
+    <script type="text/template" id="authorTemp">
+      <h3><%= author %></h3>
+      <li id="<%= objectId %>">
+        <a href="#/post/<%= objectId %>"><h4><%= title %></h4></a>
+        <p><%= content %></p>
+        <p><%= category %></p>
+        <p>Published: <%= moment(createdAt).format("MMM Do YY") %></p>
+      </li>
+    </script>
+
+    <script src="scripts/vendor.js"></script>
+
+    <script src="//www.parsecdn.com/js/parse-1.3.1.min.js"></script>
+
+    <script type="text/javascript">
+      window.App = {};
+      App.Models = {};
+      App.Collections = {};
+      App.Views = {};
+      App.Routers = {};
+    </script>
+
+        <script src="scripts/main.js"></script>
+</body>
+</html>
