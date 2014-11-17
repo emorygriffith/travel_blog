@@ -8,6 +8,9 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
   font-size: 62.5%;
+  background-image: URL('http://p1.pichost.me/i/45/1684227.jpg');
+  background-size:cover;
+  background-repeat:no-repeat;
 }
 
 .hero-unit {
@@ -84,6 +87,7 @@ li {
   list-style-type: none;
   background-color: white;
   opacity: .6;
+  padding-left:25px;
 
   a {
     color: HSLA(0, 0%, 99%, 1);
@@ -134,4 +138,81 @@ li {
 
 .hide {
   display: none;
+}
+
+#post_title{
+  display:block;
+}
+
+
+
+#post_content{
+  display:block;
+  margin-top:30px;
+}
+
+#publishPost{
+  margin-top:30px;
+}
+
+#addForm{
+
+  button{
+  color:black;
+  border-radius: 10px;
+  }
+}
+
+#logIn{
+  #username{
+    display:block;
+  }
+  #password{
+    display:block;
+    margin-top:10px;
+  }
+  button{
+    display:block;
+    margin-top:10px;
+  }
+}
+
+#signUp{
+  #username{
+    display:block;
+  }
+  #password{
+    display:block;
+    margin-top:10px;
+  }
+  button{
+    display:block;
+    margin-top:10px;
+  }
+}
+
+.singlePost{
+  text-align:center;
+
+  .jumbo{
+    font-size:2.8em;
+  }
+
+}
+
+.commentS{
+  text-align:center;
+
+
+
+  #commentAuthor{
+    display:block;
+  }
+  #commentText{
+    display:block;
+  }
+  button{
+    display:block;
+  }
+
 }

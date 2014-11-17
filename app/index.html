@@ -61,7 +61,7 @@
       <form id="logIn">
         <input id="username" type="text" placeholder="Enter User Name" />
         <input id="password" type="password" placeholder="Enter Password" />
-        <button>Log In 2</button>
+        <button>Log In</button>
       </form>
     </script>
 
@@ -86,13 +86,9 @@
 
     <script type="text/template" id="addTemp">
       <form id="addForm">
-        <input type="text" id="post_title" />
-        <textarea id="post_content"></textarea>
-        <input type='file' onchange="readURL(this);" />
-          <img id="pic" src="#" alt="your image" />
-        <button id="publishPost">Publish</button>
-        <button id="draftPost">Save As Draft</button>
-        <a href="#/user"><button>Cancel</button></a>
+        <input type="text" id="post_title" placeholder="Title"/>
+        <textarea id="post_content" rows="5" cols="80" placeholder="Enter text here"></textarea>
+
         <div class="selectCategories">
           <label>
             <input type="radio" name="category" value="Africa">
@@ -123,6 +119,12 @@
             <span>South America</span>
           </label>
         </div>
+
+          <button id="publishPost">Publish</button>
+          <button id="draftPost">Save As Draft</button>
+          <a href="#/user"><button>Cancel</button></a>
+
+
       </form>
     </script>
 
@@ -176,18 +178,21 @@
 
     <script type="text/template" id="singleTemp">
       <li id="<%= objectId %>">
-        <h3><%= title %></h3>
+        <h3 class="jumbo"><%= title %></h3>
         <p><%= content %></p>
-        <p><%= category %></p>
-        <p><%= author %></p>
-        <p>Published: <%= moment(createdAt).format("MMM Do YY") %></p>
+        <span class="authorS"><%= author %></span>
+        <span class="catS"><%= category %></span>
+        <span class="dateS">Published: <%= moment(createdAt).format("MMM Do YY") %></span>
       </li>
 
       <form id="addComment">
-        <textarea id="commentText" placeholder="Add a Comment..."></textarea>
-        <input type="text" id="commentAuthor" placeholder="Enter Your Name..." />
-        <button class="comment">Add Comment</button>
+        <div class="commentS">
+          <input type="text" id="commentAuthor" placeholder="Enter Your Name..." />
+          <textarea id="commentText" placeholder="Add a Comment..."></textarea>
+          <button class="comment">Add Comment</button>
+        </div>
       </form>
+
     </script>
 
     <script type="text/template" id="authorTemp">
