@@ -42,11 +42,11 @@
 
     <script type="text/template" id="postTemp">
       <li id="<%= objectId %>">
-        <a href="#/post/<%= objectId %>"><h4><%= title %></h4></a>
+        <h4><a href="#/post/<%= objectId %>"><%= title %></a></h4>
         <p><%= content %></p>
-        <span><%= category %></span>
-        <span><a href="#/author/<%= author %>"><%= author %></a></span>
-        <span><%= moment(createdAt).format("MMM Do YY") %></span>
+        <span class="authorS"><a href="#/author/<%= author %>"><%= author %></a></span>
+        <span class="catS"><%= category %></span>
+        <span class="dateS"><%= moment(createdAt).format("MMM Do YY") %></span>
       </li>
     </script>
 
