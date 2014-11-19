@@ -1,3 +1,21 @@
-## Yo, I'm a Readme
+## Travel Blog
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
+This was an assignment for The Iron Yard.
+
+How to use it:
+
+-Clone my repo
+
+-Run npm install
+
+-Run bower install
+
+Libraries used:
+* Backbone.js
+* jQuery
+* moment.js
+* underscore.js
+
+Authors:
+Emory Griffith: https://github.com/emorygriffith
+Dean Gilewicz: https://github.com/DeanGilewicz
