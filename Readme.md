@@ -18,4 +18,5 @@ Libraries used:
 
 Authors:
 Emory Griffith: https://github.com/emorygriffith
+
 Dean Gilewicz: https://github.com/DeanGilewicz
