@@ -2,6 +2,8 @@
 
 This was an assignment for The Iron Yard.
 
+You can see it live here: http://emorygriffith.github.io/travel_blog/ 
+
 How to use it:
 
 -Clone my repo
